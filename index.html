@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Laurel Ledger</title>
+  <meta name="description" content="A warm, mythology-themed habit ledger with an animated mascot.">
+  <meta name="theme-color" content="#f7f3ea">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='3' y='3' width='10' height='10' fill='%23c9a227'/%3E%3Crect x='5' y='6' width='2' height='2' fill='%231f1a14'/%3E%3Crect x='9' y='6' width='2' height='2' fill='%231f1a14'/%3E%3C/svg%3E">
+  <!-- Theme fonts (the site still works offline with fallbacks) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Marcellus&family=Nunito:wght@400;600;700;800&family=Pirata+One&family=Yatra+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#view">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="topbar">
+    <div class="decor-strip" aria-hidden="true"></div>
+    <div class="topbar-inner">
+      <h1 class="site-title"><span id="siteName">Laurel Ledger</span> <span class="ornament" id="ornament" aria-hidden="true">❦</span></h1>
+      <div class="topbar-actions">
+        <span class="daypart" id="daypartIcon" aria-hidden="true">☀️</span>
+        <button class="icon-btn" data-act="theme-next" aria-label="Switch mythology theme" title="Switch theme">🎭</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ MASCOT HERO ============ -->
+  <section class="hero" id="hero" aria-label="Your mascot">
+    <button class="mascot-wrap" data-act="poke" aria-label="Poke your mascot">
+      <canvas id="heroCanvas" class="mascot-canvas" width="140" height="140" aria-hidden="true"></canvas>
+    </button>
+    <div class="hero-text">
+      <div class="bubble" id="bubble" role="status" aria-live="polite"></div>
+      <p class="mascot-meta"><strong id="mascotName">Olive</strong> · <span id="mascotStage">Owlet</span></p>
+    </div>
+  </section>
+
+  <!-- ============ MAIN VIEW (rendered by app.js) ============ -->
+  <main id="view" tabindex="-1"></main>
+
+  <footer class="footer">
+    <div class="decor-strip" aria-hidden="true"></div>
+    <p><strong>General wellness information, not medical advice.</strong> The “Why it works” cards summarise published research in plain language and label how strong the evidence is. They can’t diagnose or treat anything. For health concerns, please talk to a doctor or pharmacist.</p>
+    <p class="muted small">Your data stays in this browser. Use Settings → Export to keep a backup.</p>
+  </footer>
+
+  <!-- ============ BOTTOM NAV ============ -->
+  <nav class="bottomnav" aria-label="Main">
+    <button data-act="nav" data-view="today"><span aria-hidden="true">🏛️</span>Today</button>
+    <button data-act="nav" data-view="review"><span aria-hidden="true">🪞</span>Review</button>
+    <button data-act="nav" data-view="insights"><span aria-hidden="true">📈</span>Insights</button>
+    <button data-act="nav" data-view="wins"><span aria-hidden="true">🌟</span>Wins</button>
+    <button data-act="nav" data-view="mascot"><span aria-hidden="true">🪺</span>Mascot</button>
+    <button data-act="nav" data-view="settings"><span aria-hidden="true">⚙️</span>Settings</button>
+  </nav>
+
+  <!-- ============ OVERLAYS ============ -->
+  <div class="sheet-backdrop" id="sheetBackdrop" hidden>
+    <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle"></div>
+  </div>
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+  <div class="confetti-layer" id="confetti" aria-hidden="true"></div>
+
+  <!-- ============ SCRIPTS (order matters: data first, app last) ============ -->
+  <script src="js/themes.js"></script>
+  <script src="js/habits.js"></script>
+  <script src="js/wisdom.js"></script>
+  <script src="js/mascot.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
